@@ -24,7 +24,7 @@ before_install:
   - node --version
   - npm install -g grunt-cli
   - if [[ $SHIPPABLE_NODE_VERSION =~ [0].[6-8] ]]; then npm install -g npm@~1.4.6; fi
-
+  - travis_retry 'if [ $i -eq 3 ]; then echo "done"; else foobar$i; fi'
 
 archive: true
 # Running the tests with grunt
