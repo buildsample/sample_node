@@ -46,6 +46,6 @@ after_script:
 
 #cache: true 
 
-notifications:
- email: false
+#notifications:
+ #email: false
 #build_image: shippable/minv2:beta
