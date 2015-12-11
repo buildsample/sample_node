@@ -1,4 +1,4 @@
-build_image: drydock/u14nodpls:prod
+build_image: drydock/u14nodpls:tip
 #test
 # Language setting
 language: node_js
