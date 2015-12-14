@@ -1,7 +1,7 @@
 #build_image: shippableimages/ubuntu1204_nodejs
 # Language setting
 language: node_js
-build_image: drydock/u14nod:ci
+build_image: drydock/u12nod:ci
 
 # Version number
 node_js:
