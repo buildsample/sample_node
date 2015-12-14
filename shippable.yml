@@ -14,9 +14,7 @@ node_js:
 
 # The path for Xunit to output test reports
 
-services:
-  - mongodb
-  - mysql
+
 env:
  global:
    - XUNIT_FILE=shippable/testresults/result.xml
