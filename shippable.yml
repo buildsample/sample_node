@@ -5,6 +5,7 @@ language: node_js
 
 #build_image: shippable/minv2:beta
 
+
 # Version number
 node_js:
   - 0.10.25
