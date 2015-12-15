@@ -5,11 +5,15 @@ build_image: drydock/u12nodpls:tip
 
 # Version number
 node_js:
- # - 0.6
+  - 0.6
   - 0.8
   - 0.10.25
   - 0.11
   - 0.12
+  - "iojs-v1"
+  - "iojs-v2"
+  - "iojs-v3"
+  - "4.0"
 
 # The path for Xunit to output test reports
 env:
@@ -27,7 +31,7 @@ before_script:
 before_install:
   - node --version
   - npm install -g grunt-cli
-  - source ~/.rvm/scripts/rvm && rvm use 1.9.3
+ # - source ~/.rvm/scripts/rvm && rvm use 1.9.3
   - if [[ $SHIPPABLE_NODE_VERSION =~ [0].[6-8] ]]; then npm install -g npm@~1.4.6; fi
 
 archive: true
