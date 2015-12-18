@@ -1,17 +1,20 @@
 #build_image: shippableimages/ubuntu1204_nodejs
 # Language setting
 language: node_js
-build_image: shippable/minv2
+build_image: drydock/u12nodall:tip
 
 # Version number
 node_js:
  # - 0.6
   - 0.8
- # - 0.6
   - 0.10.25
   - 0.11
-  #- 0.12
-
+  - "0.12"
+  - "iojs-v1"
+  - "iojs-v2"
+  - "iojs-v3"
+  - "4.0"
+  - "4.2.2"
 # The path for Xunit to output test reports
 env:
  global:
