@@ -5,9 +5,6 @@ language: node_js
 
 # Version number
 node_js:
- # - 0.6
-  - 0.8
- # - 0.6
   - 0.10.25
   - 0.11
   #- 0.12
@@ -16,36 +13,27 @@ node_js:
 env:
  global:
    - XUNIT_FILE=shippable/testresults/result.xml
-   - secure: JO857Oqw5kZcE4clSeqVFmNRM0tn9+uUqGHrQ8FW6b/yjLgvNNyJBdR2U3lFYVcbvFki+DClG/CUas6MQvf7n2btR2zUXQD8OW1r3Gr5DIQNTlOok5YkFHkRQb/M6A78S781c6YwKwMQ4iDGiwX0NIDF0A6LmDWuHSl1aXMR2+exXuzxDX0ucgi2KW1YxRpBBjTuQFITW34dR1eYZXUFGHofJWuqza+9wzPRl9gpAV5zTes3SM57vT19F15OtNRyhrX4tPTV109EWuOE0XFY2B8S1RvxgaUDrQFTV6pOx2XIKFT+x1zsTlc5ANeNqMgHyouSG1aXhO/0oTev2nN9RQ==
-   - secure: f/Adl53Y/r2tPJ/bDOos8RB5UB93B2XwoNCTe610rvwIxIziLSaLyIZMV07blMogyLycF5Rz52vz02UbiybyxSsElDSG34kiUHqht4+kLlA6vVuGa/MhvC3Am2veeMUdLl3+Kztxjw4BQBzlr2GJv76BLAOkc6rsaLbOhxUsUs2m5+1L3Kp/kSZ6qnk8BAf8cSVQsQOlhryLAYmnPqhMkd9QSTyUtiJACdeioIrTac6v/4LE9iNSAO17507cZ8bBRGIf6a+2MmswqHkonEGPKahCHI1YOrxZDJdUgE/lNGhJqqLezTH7zcFbTNDUtVU0Y6k2aIjF0yMrMb8kT0Jf3w==
-
+   
 # Create directories for test and coverage reports
 before_script:
   - mkdir -p shippable/testresults
   - mkdir -p shippable/codecoverage
-  - echo $test1
+
   
 before_install:
   - node --version
   - npm install -g grunt-cli
-  - source ~/.rvm/scripts/rvm && rvm use 1.9.3
   - if [[ $SHIPPABLE_NODE_VERSION =~ [0].[6-8] ]]; then npm install -g npm@~1.4.6; fi
 
 archive: true
 # Running the tests with grunt
 script:
    - grunt
-   - echo $HEAD_BRANCH
-   - echo $BASE_BRANCH 
-   - echo $beta
+   
 
 # Tell istanbul to generate a coverage report
 after_script:
   - ./node_modules/.bin/istanbul cover grunt -- -u tdd
   - ./node_modules/.bin/istanbul report cobertura --dir  shippable/codecoverage/
 
-#cache: true 
 
-#notifications:
- #email: false
-#build_image: shippable/minv2:beta
